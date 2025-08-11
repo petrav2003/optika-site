@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="hr" dir="ltr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="Asortiman - Optika Nova" />
+  <title>Asortiman • Optika Nova</title>
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/global.css" />
+  <!-- Lokalni fix samo za asortiman (ne dira global) -->
+  <style>
+    /* 1) Stabilna visina slika bez "skakanja" (prebija globalni .product img {height:160px}) */
+    .products .product img{
+      height:auto !important;
+      width:100%;
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
+      background:
+        radial-gradient(60% 60% at 20% 10%, color-mix(in oklab, var(--brand-1) 18%, transparent), transparent),
+        radial-gradient(60% 60% at 80% 0%, color-mix(in oklab, var(--brand-2) 20%, transparent), transparent);
+    }
+    /* 2) Single‑column na uskim ekranima za ljepši flow (ako auto-fit zapne) */
+    @media (max-width: 420px){
+      .products{
+        grid-template-columns: 1fr !important;
+      }
+    }
+    /* 3) Malo više disanja u kartici na mobitelu */
+    @media (max-width: 480px){
+      .product .info{ padding: 16px; }
+      .product h3{ font-size: 1.02rem; }
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="container nav" role="navigation" aria-label="Glavna navigacija">
+      <a class="brand" href="index.html" aria-label="Početna">
+        <img src="assets/favicon.svg" alt="" />
+        <span>Optika Nova</span>
+      </a>
+      <button class="burger" aria-label="Otvori zatvori izbornik" aria-expanded="false">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+          <path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </button>
+      <nav class="menu" aria-label="Izbornik">
+        <a href="index.html">Početna</a>
+        <a href="o-nama.html">O nama</a>
+        <a href="ponuda.html">Ponuda</a>
+        <a href="asortiman.html">Asortiman</a>
+        <a href="kontakt.html">Kontakt</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="container" style="padding: clamp(32px, 6vw, 64px) 0">
+      <h1 class="h1">Asortiman</h1>
+      <p class="lead">Izbor premium okvira, sunčanih naočala i leća.</p>
+
+      <div class="products" style="margin-top:16px">
+        <article class="product">
+          <img
+            src="https://images.unsplash.com/photo-1511497584788-876760111969?q=80&w=1200&auto=format&fit=crop"
+            alt="Dioptrijski okvir crne boje"
+            loading="lazy" decoding="async" width="1200" height="675">
+          <div class="info">
+            <div class="badge">Novo</div>
+            <h3>Okvir Classic Black</h3>
+            <p class="price">129 €</p>
+          </div>
+        </article>
+
+        <article class="product">
+          <img
+            src="https://images.unsplash.com/photo-1518655048521-f130df041f66?q=80&w=1200&auto=format&fit=crop"
+            alt="Sunčane naočale sa zlatnim okvirom"
+            loading="lazy" decoding="async" width="1200" height="675">
+          <div class="info">
+            <div class="badge">Best buy</div>
+            <h3>Sunčane Goldline</h3>
+            <p class="price">99 €</p>
+          </div>
+        </article>
+
+        <article class="product">
+          <img
+            src="https://images.unsplash.com/photo-1582582621959-48d1d1b33db4?q=80&w=1200&auto=format&fit=crop"
+            alt="Tanke moderne naočale"
+            loading="lazy" decoding="async" width="1200" height="675">
+          <div class="info">
+            <div class="badge">Limitirano</div>
+            <h3>Okvir Minimal Steel</h3>
+            <p class="price">149 €</p>
+          </div>
+        </article>
+
+        <article class="product">
+          <img
+            src="https://images.unsplash.com/photo-1520975916090-3105956dac38?q=80&w=1200&auto=format&fit=crop"
+            alt="Kontaktne leće pakiranje"
+            loading="lazy" decoding="async" width="1200" height="675">
+          <div class="info">
+            <div class="badge">Akcija</div>
+            <h3>Kontaktne leće (mjesecne)</h3>
+            <p class="price">29 €</p>
+          </div>
+        </article>
+      </div>
+
+      <div style="margin-top:18px">
+        <a class="btn btn-primary" href="ponuda.html">Usluge i ugradnja</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container foot">
+      <div>© <span id="year"></span> Optika Nova. Sva prava pridržana.</div>
+      <div class="social" aria-label="Društvene mreže">
+        <a href="#" aria-label="Instagram">Instagram</a>
+        <a href="#" aria-label="Facebook">Facebook</a>
+        <a href="#" aria-label="GitHub">GitHub</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/script.js"></script>
+</body>
+</html>
